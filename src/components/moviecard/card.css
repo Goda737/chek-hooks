@@ -1,0 +1,18 @@
+.card{
+    width: 15rem;
+    height: 20rem;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 5px 5px 15px 5px #000000; 
+    border-radius: 1rem;
+    background-color: rgba(41, 37, 37, 0.411);
+}
+
+.card span {
+    font-weight: bold;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    color: blanchedalmond;
+
+}
