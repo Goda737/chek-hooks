@@ -1,39 +1,24 @@
 
-import { useState } from 'react';
+import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import './App.css';
-import Filter from './components/filter/filter';
-import Liste from './components/movielist/list';
+import Addmovie from './pages/addmovie/addmovie';
+import Movie from './pages/movie/movie';
 
 
-const moviesListe = [{
-  title:'movie 01',
-  description:'DEC 01',
-  rating: '10',
-  Url: 'url01'
-},
-{
-  title:'movie 02',
-  description:'DEC 02',
-  rating: '10',
-  Url: 'url02'
-  
-},
-{
-  title:'movie 03',
-  description:'DEC 03',
-  rating: '10',
-  Url: 'url03'
-}
-]
 const App =() => {
-  const [movies,useMovies]= useState(moviesListe)
   return (
-    <div className="App">
-      <Filter/>
-      <Liste movies={movies}/>
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/"><Redirect to ="/movie"/></Route>
+        <Route path="/movie" component={Movie}/>
+        <Route path="/addmovie" component={Addmovie}/>
+        <Route component={Movie}/>
+
+      </Switch>
+      
       
    
-    </div>
+    </BrowserRouter>
   );
 }
 
