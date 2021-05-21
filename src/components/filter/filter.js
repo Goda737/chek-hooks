@@ -1,17 +1,47 @@
 import "./filter.css"
-import {useState} from 'react'
+import {useState,useEffect} from 'react'
  
-const Filter = () =>{
+const Filter = (props) =>{
 
-    const [title,useTitle]= useState('')
-    const [rate,useRate] =useState('')
+    const{movies,setMovies,moviesList}= props;
+    const [title,setTitle]=useState('')
+    const [rating,setRating]=useState('')
+    const filter = ()=>{
+        if (title && rating){
+
+            const newMovies= moviesList.filter(e=>e.title.toUpperCase().includes (title.toUpperCase())
+            && e.rating == rating)
+            setMovies(newMovies)
+
+
+        } else{
+        if (title){
+        const newMovies= moviesList.filter(e=>e.title.toUpperCase().includes (title.toUpperCase()))
+        setMovies(newMovies)
+        } else{
+
+        if(rating){
+
+            const newMovies= moviesList.filter(e=>e.rating == rating)
+        setMovies(newMovies)
+                }
+                else {setMovies(moviesList)}
+
+        } 
+            
+    } 
+    
+    }
+    useEffect(() =>{
+        filter();
+    },[title,rating])
 
 
     return(
         <div className={'filter'}>
 
-            <input type='text' placeholder='Title'/>
-            <input type='number' placeholder='Rating'/>
+            <input type='text' placeholder='Title' value={title} onChange={event => setTitle(event.target.value)}/>
+            <input  placeholder='Rating' value={rating} onChange={event => setRating(event.target.value)}/>
             <div  className ={'button'}>
                 <span>Filter</span>
             </div>
