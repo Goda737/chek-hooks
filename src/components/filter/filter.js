@@ -1,7 +1,11 @@
 import "./filter.css"
 import {useState,useEffect} from 'react'
+import {TextField,Button} from '@material-ui/core'
+import {useHistory} from 'react-router-dom'
  
 const Filter = (props) =>{
+
+    const router = useHistory()
 
     const{movies,setMovies,moviesList}= props;
     const [title,setTitle]=useState('')
@@ -45,6 +49,14 @@ const Filter = (props) =>{
             <div  className ={'button'}>
                 <span>Filter</span>
             </div>
+
+            <Button onClick={()=> router.push('/login')} variant="contained" color="primary">
+  Login
+</Button>
+<Button onClick={()=> router.push('/addmovie')}  variant="contained" color="primary">
+  ADD
+</Button>
+
 
 
         </div>

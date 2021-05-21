@@ -3,7 +3,7 @@
  height: 3rem;
  background-color: rgb(2, 8, 97);
  display: flex;
- justify-content: center;
+ justify-content:space-around;
  align-items: center;
 }
 
