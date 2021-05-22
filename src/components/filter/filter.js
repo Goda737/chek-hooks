@@ -44,10 +44,13 @@ const Filter = (props) =>{
     return(
         <div className={'filter'}>
 
-            <input type='text' placeholder='Title' value={title} onChange={event => setTitle(event.target.value)}/>
-            <input  placeholder='Rating' value={rating} onChange={event => setRating(event.target.value)}/>
+            <TextField id="standard-basic" label="Title" value={title} onChange={event => setTitle(event.target.value)}/>
+            <TextField id="standard-basic" label="Rating" value={rating} onChange={event => setRating(event.target.value)}/>
             <div  className ={'button'}>
-                <span>Filter</span>
+            <Button variant="contained" color="primary">
+  filter
+</Button>
+                
             </div>
 
             <Button onClick={()=> router.push('/login')} variant="contained" color="primary">
